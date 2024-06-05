@@ -10,14 +10,19 @@ body, html {
 /* ===============HOME================================ */
 nav{
     padding: 10px 0;
-    color: aliceblue;
-    background-color: #9D1D1F;
+    background-color: #F1EFE7;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Thêm hiệu ứng đổ bóng */
 }
 
 .navbar-inverse {
-    background-color: #9D1D1F !important;
-    border-color: #9D1D1F !important;
+    background-color: #F1EFE7 !important;
+    border-color: #F1EFE7 !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #337ab7 !important;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    background-color: #ffff !important;
 }
 .container-fluid{
     display: flex;
@@ -40,6 +45,7 @@ nav{
     background-color: #E9E9E9;
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
+    margin: 10px 0 ;
 }
 .block:hover{
     transform: translateY(-5px);

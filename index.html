@@ -10,7 +10,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>IOTA models</title>
+    <style>
+        @media screen and (max-width: 1080px) {
+            .navbar .navbar-nav li {
+                display: none !important;
+            }
+            .navbar-nav li.icon {
+                float: right;
+                display: block !important;
+            }
+        }
+        @media screen and (min-width: 1080px) {
+            .navbar-nav li.icon {
+                float: right;
+                display: none !important;
+            }
+            #check1{
+                display: none !important;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            body, html{
+                margin: 0 20px;
+            }
+            .navbar {
+                border-radius: 4px;
+            }
+        }
+        @media screen and (max-width: 576px) {
+            body, html{
+                margin: 0 5px;
+            }
+            .navbar {
+                border-radius: 4px;
+            }
+        }
+        #check1{
+            background-color: #F1EFE7 !important;
+        }
+        .navbar{
+            margin-bottom: 0 !important;
+        }
+        #check1 ul li{
+            list-style-type: none;
+        }
+    </style>
 </head>
 <body>
       <nav class="navbar navbar-inverse">
@@ -32,12 +78,35 @@
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">About us</a></li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Contact</a></li>
                 <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
-                        <div class="flag"><a href="/index_vn.html" title="Tiếng Việt"><img src="./image/vietnam.png" alt=""></a></div>
-                        <div class="flag"><a href="#" title="Engdivsh"><img src="./image/england.jpg" alt=""></a></div>
+                    <div class="flag"><a href="/index_vn.html" title="Tiếng Việt"><img src="./image/vietnam.png" alt=""></a></div>
+                    <div class="flag"><a href="#" title="Engdivsh"><img src="./image/england.jpg" alt=""></a></div>
+                </li>
+                <li class="icon" style="padding-top: 15px; padding-bottom: 15px;">
+                    <button onclick="test()"><i class="glyphicon glyphicon-align-justify"></i></button>
                 </li>
             </ul>
           </div>
       </nav>
+      <div id="check1" class="col-sm-12" style=" z-index: 1; display: none">
+        <ul class="nav navbar-nav" style="display: flex; flex-direction: column; width: 100%; text-align: end;">
+            <li><a href="./index.html">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Models
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/template/SimpleRules.html">Simple Rules</a></li>
+                <li><a href="/template/LogisticModel.html">LR1 & LR2</a></li>
+                <li><a href="/template/AdnexModel.html">Adnex Models</a></li>
+              </ul>
+            </li>
+            <li><a href="https://www.facebook.com/profile.php?id=61552247136375">About us</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Contact</a></li>
+            <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;align-items: center; justify-content: end;">
+                <div class="flag"><a href="/index_vn.html" title="Tiếng Việt"><img src="./image/vietnam.png" alt=""></a></div>
+                <div class="flag"><a href="#" title="Engdivsh"><img src="./image/england.jpg" alt=""></a></div>
+            </li>
+        </ul>
+      </div>
     <h1 style="text-align: center; margin: 40px 0;" id="heading-main">Ovarian Tumor Evaluation Model</h1>
     <div class="row" style="margin: 30px 0;">
         <div class="col-lg-4" style="text-align: center;">
@@ -66,5 +135,19 @@
         <p>2. Timmerman, D et al. “Ovarian cancer prediction in adnexal masses using ultrasound-based logistic regression models: a temporal and external validation study by the IOTA group.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 36,2 (2010): 226-34.<a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.7636</a></p>
         <p>3. Van Calster, Ben et al. “Evaluating the risk of ovarian cancer before surgery using the ADNEX model to differentiate between benign, borderline, early and advanced stage invasive, and secondary metastatic tumours: prospective multicentre diagnostic study.” BMJ (Clinical research ed.) vol. 349 g5920. 15 Oct. 2014, <a href="https://pubmed.ncbi.nlm.nih.gov/25320247/">doi:10.1136/bmj.g5920</a></p>
     </div>
+    <script defer>
+        var cout = 0;
+        function test(){
+            if(cout == 1){
+                var test = document.getElementById('check1');
+                test.style.display = 'none';
+                cout = 0;
+            }else{
+                var test = document.getElementById('check1');
+                test.style.display = 'block';
+                ++cout;
+            }
+        }
+    </script>
 </body>
 </html>
