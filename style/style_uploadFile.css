@@ -100,6 +100,20 @@ p {
   margin-bottom: .5rem;
 }
 
+#button-del-search > button {
+  background-color: #B41D24;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px
+}
+
+#button-del-search >button:last-child{
+  background-color: #117DBA;
+}
+
 .uploader #file-image {
   /* display: inline;
   margin: 0 0 0 0;

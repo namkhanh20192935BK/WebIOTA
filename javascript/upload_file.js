@@ -70,6 +70,8 @@ function ekUpload(){
       // Thumbnail Preview
       document.getElementById('file-image').classList.remove("hidden");
       document.getElementById('file-image').src = URL.createObjectURL(file);
+      document.getElementById('button-del-search').classList.remove("hidden");
+      document.querySelector('.uploader label').style.padding = '2rem 1.5rem';
     }
     else {
       document.getElementById('file-image').classList.add("hidden");
