@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/alertBox.css">
+	<!-- <link rel="stylesheet" href="/style/style.css"> -->
+	<link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="/style/app.min.css">
+    <link rel="stylesheet" href="/style/style_uploadFile.css">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script> -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    /> -->
+
+    <meta name="description" content="Easy free online HTML image map generator. Select an image, click to create your areas and generate HTML output!">
+    <meta name="keywords" content="image map, image map generator, HTML image map, image map online tool">
+    
+    <meta property="og:title" content="Free Online Image Map Generator">
+    <meta property="og:description" content="Easy free online HTML image map generator. Select an image, click to create your areas and generate HTML output!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.image-map.net/">
+    <meta property="og:image" content="https://www.image-map.net/images/apple-touch-icon-112x112.png">
+    <meta property="og:image:width" content="112">
+    <meta property="og:image:height" content="112">
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-112x112.png">
+
+    <link rel="stylesheet" href="app.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quantico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="/javascript/upload_file.js" defer></script>
+	<title>Phân vùng khối U</title >
+    <style>
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        #form_upload{
+            width: 100%;
+        }
+        #form_upload form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body itemscope itemtype="http://schema.org/WebApplication">
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:50px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/index_vn.html">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
+                  <span class="caret"style="left: 5%"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SimpleRules_vn.html">Nguyên tắc cơ bản của IOTA</a></li>
+                    <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
+                    <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                        <span class="caret"style="left: 5%"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                      <li><a href="">Phân vùng khối U</a></li>
+                      <li><a href="">Phát hiện và phân vùng tự động khối U</a></li>
+                    </ul>
+                  </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="#" title="Vietnamese"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="AdnexModel.html" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+      </nav>    
+      <body>
+        <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">PHƯƠNG PHÁP PHÂN VÙNG U DỰA TRÊN GỢI Ý </p>
+        <div id="form_upload">
+            <form id="file-upload-form" class="uploader">
+                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                <label for="file-upload" id="file-drag">
+                <img id="file-image" src="#" alt="Preview" class="hidden">
+                <div id="start">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <div>Chọn ảnh hoặc kéo thả ảnh tại đây</div>
+                    <div id="notimage" class="hidden" style="color: red;">Vui lòng chọn hoặc kéo thả hình ảnh</div>
+                    <span id="file-upload-btn" class="btn btn-primary" style="left: unset; transform: unset;">Chọn ảnh từ máy tính</span>
+                </div>
+                <!-- <div id="response" class="hidden">
+                    <div id="messages"></div>
+                    <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%
+                    </progress>
+                </div> -->
+                <div id="button-del-search" class="hidden">
+                    <button><i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh</button>
+                    <button><i class="bi bi-search"></i>&nbsp;Phát hiện tự động</button>
+                </div>
+                </label>
+            </form>
+            <!-- Thử nghiệm -->
+            <!-- <input type="file" id="image-mapper-file" name=""> -->
+            <!--  -->
+        </div>
+        <div class="container toggle-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="image-map-wrapper  ">
+                        <div id="image-map-container">
+                            <div id="image-map" style="max-width: 100%">
+                                <span class="glyphicon glyphicon-picture"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table" id="image-mapper-table">
+                        <thead>
+                            <tr>
+                                <th>Active</th>
+                                <th>Shape</th>
+                                <th>Link</th>
+                                <th>Title</th>
+                                <th>Target</th>
+                                <th style="width: 25px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 65px">
+                                    <div class="control-label input-sm">
+                                        <input type="radio" name="im[0][active]" value="1">
+                                    </div>
+                                </td>
+                                <td>
+                                    <select name="im[0][shape]" class="form-control input-sm">
+                                        <option value>---</option>
+                                        <option value="rect">Rect</option>
+                                        <option value="poly">Poly</option>
+                                        <option value="circle">Circle</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="im[0][href]" class="form-control input-sm" placeholder="Link">
+                                </td>
+                                <td>
+                                    <input type="text" name="im[0][title]" class="form-control input-sm" placeholder="Title">
+                                </td>
+                                <td>
+                                    <select name="im[0][target]" class="form-control input-sm">
+                                        <option value>---</option>
+                                        <option value="_blank">_blank</option>
+                                        <option value="_parent">_parent</option>
+                                        <option value="_self">_self</option>
+                                        <option value="_top">_top</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-default btn-sm remove-row" name="im[0][remove]">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="6" style="text-align: right">
+                                    <button type="button" class="btn btn-danger btn-sm add-row">
+                                        <span class="glyphicon glyphicon-plus"></span> Add New Area
+                                    </button>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container toggle-content segment">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal-code">Show Me The Code!</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="image-mapper-load" tabindex="-1" role="dialog" aria-labelledby="image-mapper-load-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="image-mapper-dialog">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="image-mapper-load-label">Load Image from Website</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group input-group-sm has-error">
+                            <input type="text" id="image-mapper-url" class="form-control input-sm" placeholder="http://...">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="image-mapper-continue">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-code" tabindex="-1" role="dialog" aria-labelledby="modal-code-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="modal-code-dialog">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="modal-code-label">Generated Image Map Output</h4>
+                    </div>
+                    <div class="modal-body">
+                        <textarea class="form-control input-sm" readonly id="modal-code-result" rows="10"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </body>
+
+      <footer>
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+      </footer>
+      <script src="/javascript/app.min.js"></script>
+      <script>
+          (function($) {
+              $(document).trigger('init');
+          })(jQuery);
+      </script>
+      <script>
+          var _fo = _fo || [];
+          _fo.push({ 'm': 'true', 'c': 'f8e147', 'i': 10442 });
+          if (typeof fce === 'undefined') {
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = (document.location.protocol === 'https:' ? 'https://' : 'http://') + 'formcrafts.com/js/fc.js';
+              var fi = document.getElementsByTagName('script')[0];
+              fi.parentNode.insertBefore(s, fi);
+              fce = 1;
+          }
+      </script>
+      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;8ae35963b0bf442da01a81c003073ad3&quot;}"></script>
+</body>
+</html>
