@@ -9,6 +9,38 @@
     <link rel="stylesheet" href="/style/app.min.css">
     <link rel="stylesheet" href="/style/style_uploadFile.css">
 
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script> -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    /> -->
+
+    <!-- <meta name="description" content="Easy free online HTML image map generator. Select an image, click to create your areas and generate HTML output!">
+    <meta name="keywords" content="image map, image map generator, HTML image map, image map online tool">
+    
+    <meta property="og:title" content="Free Online Image Map Generator">
+    <meta property="og:description" content="Easy free online HTML image map generator. Select an image, click to create your areas and generate HTML output!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.image-map.net/">
+    <meta property="og:image" content="https://www.image-map.net/images/apple-touch-icon-112x112.png">
+    <meta property="og:image:width" content="112">
+    <meta property="og:image:height" content="112">
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-112x112.png"> -->
+
+    <link rel="stylesheet" href="app.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quantico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -53,7 +85,7 @@
         }
     </style>
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebApplication">
 	<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -114,6 +146,9 @@
                 </div>
                 </label>
             </form>
+            <!-- Thử nghiệm -->
+            <!-- <input type="file" id="image-mapper-file" name=""> -->
+            <!--  -->
         </div>
         <div class="container toggle-content">
             <div class="row">
@@ -131,8 +166,9 @@
                             <tr>
                                 <th>Active</th>
                                 <th>Shape</th>
-                                <th>Image Size</th>
-                                <th>Coordinates</th>
+                                <th>Link</th>
+                                <th>Title</th>
+                                <th>Target</th>
                                 <th style="width: 25px"></th>
                             </tr>
                         </thead>
@@ -151,8 +187,21 @@
                                         <option value="circle">Circle</option>
                                     </select>
                                 </td>
-                                <td><p id="image-size"></p></td>
-                                <td><p id="coordinate-text"></p></td>
+                                <td>
+                                    <input type="text" name="im[0][href]" class="form-control input-sm" placeholder="Link">
+                                </td>
+                                <td>
+                                    <input type="text" name="im[0][title]" class="form-control input-sm" placeholder="Title">
+                                </td>
+                                <td>
+                                    <select name="im[0][target]" class="form-control input-sm">
+                                        <option value>---</option>
+                                        <option value="_blank">_blank</option>
+                                        <option value="_parent">_parent</option>
+                                        <option value="_self">_self</option>
+                                        <option value="_top">_top</option>
+                                    </select>
+                                </td>
                                 <td>
                                     <button class="btn btn-default btn-sm remove-row" name="im[0][remove]">
                                         <span class="glyphicon glyphicon-remove"></span>
@@ -176,7 +225,7 @@
         <div class="container toggle-content segment">
             <div class="row">
                 <div class="col-md-12" style="text-align: center">
-                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal-code">Phân vùng tự động</button>
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal-code">Show Me The Code!</button>
                 </div>
             </div>
         </div>
@@ -189,7 +238,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group input-group-sm has-error">
-                            <input type="text" id="image-mapper-url" class="form-control input-sm" placeholder="">
+                            <input type="text" id="image-mapper-url" class="form-control input-sm" placeholder="http://...">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </span>
@@ -236,5 +285,19 @@
               $(document).trigger('init');
           })(jQuery);
       </script>
+      <script>
+          var _fo = _fo || [];
+          _fo.push({ 'm': 'true', 'c': 'f8e147', 'i': 10442 });
+          if (typeof fce === 'undefined') {
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = (document.location.protocol === 'https:' ? 'https://' : 'http://') + 'formcrafts.com/js/fc.js';
+              var fi = document.getElementsByTagName('script')[0];
+              fi.parentNode.insertBefore(s, fi);
+              fce = 1;
+          }
+      </script>
+      <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;8ae35963b0bf442da01a81c003073ad3&quot;}"></script> -->
 </body>
 </html>
