@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Drag</title>
+    <style>
+        #file-drag {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        #file-drag.hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        #image-display {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="file-upload" accept="image/*">
+    <div id="file-drag">Drag & Drop your image here</div>
+    <img id="image-display" src="" alt="Uploaded Image">
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom Script -->
+    <script src="test.js"></script>
+</body>
+</html>
