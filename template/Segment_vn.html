@@ -129,11 +129,11 @@
                     <table class="table" id="image-mapper-table">
                         <thead>
                             <tr>
-                                <th>Active</th>
-                                <th>Shape</th>
-                                <th>Image Size</th>
-                                <th>Coordinates</th>
-                                <th style="width: 25px"></th>
+                                <th>Chọn</th>
+                                <th>Hình dạng</th>
+                                <th>Kích thước hình ảnh</th>
+                                <th>Tọa độ</th>
+                                <th style="width: 100px;">Ghi chú</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -153,14 +153,14 @@
                                 </td>
                                 <td><p id="image-size"></p></td>
                                 <td><p id="coordinate-text"></p></td>
-                                <td>
+                                <td style="display: flex; justify-content: center;">
                                     <button class="btn btn-default btn-sm remove-row" name="im[0][remove]">
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </button>
                                 </td>
                             </tr>
                         </tbody>
-                        <tfoot>
+                        <!-- <tfoot>
                             <tr>
                                 <th colspan="6" style="text-align: right">
                                     <button type="button" class="btn btn-danger btn-sm add-row">
@@ -168,7 +168,7 @@
                                     </button>
                                 </th>
                             </tr>
-                        </tfoot>
+                        </tfoot> -->
                     </table>
                 </div>
             </div>
@@ -176,7 +176,11 @@
         <div class="container toggle-content segment">
             <div class="row">
                 <div class="col-md-12" style="text-align: center">
-                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal-code">Phân vùng tự động</button>
+                    <!-- <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal-code">Phân vùng tự động</button> -->
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" id="modal-code">Phân vùng tự động</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="delete-image-button">
+                        <i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh
+                    </button>
                 </div>
             </div>
         </div>
@@ -202,7 +206,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modal-code" tabindex="-1" role="dialog" aria-labelledby="modal-code-label" aria-hidden="true">
+        <!-- <div class="modal fade" id="modal-code" tabindex="-1" role="dialog" aria-labelledby="modal-code-label" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content" id="modal-code-dialog">
                     <div class="modal-header">
@@ -217,7 +221,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
       </body>
 
       <footer>
