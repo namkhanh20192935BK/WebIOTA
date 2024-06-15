@@ -432,7 +432,10 @@ function(a) {
                 }
             }
         }),
-        a(document).on("show.bs.modal", "#modal-code", function() {
+        a(document).on("click","#delete-image-button", function(){
+            location.reload();
+        }), 
+        a(document).on("click", "#modal-code", function() {
             // Hiển thị tọa độ
             var b = a("#image-map").imageMapper("asHTML");
             // Tìm chuỗi coords bằng biểu thức chính quy
@@ -469,7 +472,7 @@ function(a) {
             } else {
                 console.log("Không tìm thấy thẻ có id là 'image-size'.");
             }
-            a("#modal-code-result").text(b).css("whiteSpace", "pre")
+            // a("#modal-code-result").text(b).css("whiteSpace", "pre")
         }),
         a(document).on("click", "#image-mapper-button", function() {
             var b = a("#image-map").imageMapper("asHTML");
@@ -549,6 +552,9 @@ function(a) {
             var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
             if (isGood) {
                 console.log("Tệp hợp lệ: " + file.name);
+                a(document).ready(function() {
+                    a("#form_upload").hide();
+                });
                 var filereader = new FileReader();
                 filereader.onloadend = function(filereader) {
                     var e = b(filereader.target.result);
@@ -573,11 +579,14 @@ function(a) {
                 };
                 filereader.readAsArrayBuffer(file);
             } else {
-                alert("Vui lòng upload ảnh!")
-                console.log("Tệp không hợp lệ: " + file.name);
+                // alert("Vui lòng upload ảnh!")
+                document.getElementById('file-image').classList.add("hidden");
+                document.getElementById('notimage').classList.remove("hidden");
+                document.getElementById('start').classList.remove("hidden");q
+                document.getElementById('response').classList.add("hidden");
+                document.getElementById("file-upload-form").reset();
             }
         }
-        
     })
 }(jQuery);
 
