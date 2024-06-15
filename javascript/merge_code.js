@@ -1,4 +1,47 @@
-let image_size = ''
+var image_size = ''
+var width = 0
+var height = 0
+var image
+var x1, x2, y1, y2, blob
+document.getElementById('modal-segment').addEventListener('click', async (event) => {
+    event.preventDefault();
+
+    var x1_cov = 256 * parseInt(x1, 10) / width;
+    var x2_cov = 256 * parseInt(x2, 10) / width;
+    var y1_cov = 256 * y1 / height;
+    var y2_cov = 256 * y2 / height;
+    
+    // alert("x1_cov: " + x1_cov +
+    //       "\nx2_cov: " + x2_cov +
+    //       "\ny1_cov: " + y1_cov +
+    //       "\ny2_cov: " + y2_cov);
+    
+    const formData = new FormData();
+    formData.append('image', blob);
+    formData.append('x1', x1_cov);
+    formData.append('x2', x2_cov);
+    formData.append('y1', y1_cov);
+    formData.append('y2', y2_cov);
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/convert', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const blob = await response.blob();
+        const imgUrl = URL.createObjectURL(blob);
+        document.getElementById('convertedImage').src = imgUrl;
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to upload and convert image.');
+    }
+
+}),
 !function(a) {
     var b = 0
       , c = {}
@@ -446,11 +489,12 @@ function(a) {
                 var coordinates = coordsString.split(',').map(Number);
             
                 // Tách tọa độ thành hai cặp (x1, y1) và (x2, y2)
-                var x1 = coordinates[0];
-                var y1 = coordinates[1];
-                var x2 = coordinates[2];
-                var y2 = coordinates[3];
-
+                x1 = coordinates[0];                
+                y1 = coordinates[1];              
+                x2 = coordinates[2];                    
+                y2 = coordinates[3];
+                // y2 = height - parseInt(y2, 10);
+                // y1 = height - parseInt(y1, 10);
                 // Tạo văn bản tọa độ
                 var coordinateText = '<span style="display:inline-block;">Tọa độ: </span><span style="display:inline-block;">&nbsp;x<sub>1</sub>(' + x1 + ', ' + y1 + '), x<sub>2</sub>(' + x2 + ', ' + y2 + ')</span>';
             
@@ -562,12 +606,12 @@ function(a) {
                         src: "data:" + file.type + ";base64," + e,
                         file: file.name
                     });
-                    var blob = new Blob([filereader.target.result]);
-                    var image = new Image();
+                    blob = new Blob([filereader.target.result]);
+                    image = new Image();
                     image.src = URL.createObjectURL(blob);
                     image.onload = function() {
-                        var width = this.width;
-                        var height = this.height;
+                        width = this.width;
+                        height = this.height;
                         var imageSizeElement = document.getElementById('image-size');
                         if (imageSizeElement) {
                             image_size = width + 'x' + height;
