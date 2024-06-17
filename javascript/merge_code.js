@@ -3,6 +3,25 @@ var width = 0
 var height = 0
 var image
 var x1, x2, y1, y2, blob
+
+// Lắng nghe sự kiện click trên nút Tải ảnh xuống
+document.getElementById('downloadButton').addEventListener('click', function() {
+    // Lấy URL của hình ảnh từ thuộc tính src của thẻ <img>
+    var imageURL = document.getElementById('convertedImage').src;
+
+    // Tạo một thẻ <a> để tải ảnh xuống
+    var downloadLink = document.createElement('a');
+    downloadLink.href = imageURL;
+    downloadLink.download = 'converted_image.png'; // Tên tệp sẽ tải xuống (có thể thay đổi tên và định dạng tùy ý)
+
+    // Thêm thẻ <a> vào trang web và tự động kích hoạt click để tải xuống
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+
+    // Xóa thẻ <a> sau khi tải xuống
+    document.body.removeChild(downloadLink);
+});
+
 document.getElementById('modal-segment').addEventListener('click', async (event) => {
     event.preventDefault();
 
@@ -24,7 +43,7 @@ document.getElementById('modal-segment').addEventListener('click', async (event)
     formData.append('y2', y2_cov);
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/convert', {
+        const response = await fetch('http://127.0.0.1:5000/api/segment', {
             method: 'POST',
             body: formData
         });
@@ -35,7 +54,16 @@ document.getElementById('modal-segment').addEventListener('click', async (event)
 
         const blob = await response.blob();
         const imgUrl = URL.createObjectURL(blob);
+        document.getElementById('result').style.display = "block";
         document.getElementById('convertedImage').src = imgUrl;
+
+        const resultDiv = document.getElementById('result');
+        // Set TimeOut để đảm bảo phần tử đã được thêm vào DOM rồi mới cuộn xuống
+        setTimeout(() => {
+          resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        document.getElementById("modal-segment").disabled = true;
+
     } catch (error) {
         console.error('Error:', error);
         alert('Failed to upload and convert image.');
@@ -50,10 +78,10 @@ document.getElementById('modal-segment').addEventListener('click', async (event)
             src: "",
             file: "",
             style: {
-                fill: "#666",
+                fill: "#289cff",
                 stroke: "#333",
                 strokeWidth: "1",
-                opacity: "0.6",
+                opacity: "0.5",
                 cursor: "pointer"
             },
             pointStyle: {
@@ -516,7 +544,10 @@ function(a) {
             } else {
                 console.log("Không tìm thấy thẻ có id là 'image-size'.");
             }
+
+            document.getElementById("modal-segment").disabled = false;
             // a("#modal-code-result").text(b).css("whiteSpace", "pre")
+
         }),
         a(document).on("click", "#image-mapper-button", function() {
             var b = a("#image-map").imageMapper("asHTML");
