@@ -225,6 +225,7 @@ tbody, td, tfoot, th, thead{
 .col-md-4 p {
   display: inline;
 }
+/* ===============Detect_vn======================= */
 
 /*Print*/
 @media print {

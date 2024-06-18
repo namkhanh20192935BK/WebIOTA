@@ -4,6 +4,29 @@ var height = 0
 var image
 var x1, x2, y1, y2, blob
 
+let notifications = document.querySelector('.notifications');
+let success = document.getElementById('success');
+let error = document.getElementById('error');
+let warning = document.getElementById('warning');
+let info = document.getElementById('info');
+
+function createToast(type, icon, title, text){
+    let newToast = document.createElement('div');
+    newToast.innerHTML = `
+        <div class="toast ${type}">
+            <i class="${icon}"></i>
+            <div class="content">
+                <div class="title">${title}</div>
+                <span>${text}</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        </div>`;
+    notifications.appendChild(newToast);
+    newToast.timeOut = setTimeout(
+        ()=>newToast.remove(), 5000
+    )
+}
+
 // Lắng nghe sự kiện click trên nút Tải ảnh xuống
 document.getElementById('downloadButton').addEventListener('click', function() {
     // Lấy URL của hình ảnh từ thuộc tính src của thẻ <img>
@@ -59,6 +82,7 @@ document.getElementById('modal-segment').addEventListener('click', async (event)
 
         const resultDiv = document.getElementById('result');
         // Set TimeOut để đảm bảo phần tử đã được thêm vào DOM rồi mới cuộn xuống
+        createToast('success', 'fa-solid fa-circle-check', 'Thành công', 'Vui lòng xem kết quả bên dưới');
         setTimeout(() => {
           resultDiv.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -66,7 +90,8 @@ document.getElementById('modal-segment').addEventListener('click', async (event)
 
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to upload and convert image.');
+        // alert('Failed to upload and convert image.');
+        createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không thể kết nối với Server');
     }
 
 }),

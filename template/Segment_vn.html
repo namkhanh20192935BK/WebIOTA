@@ -15,7 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <!-- <script src="/javascript/upload_file.js" defer></script> -->
+    
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<title>Phân vùng khối U</title >
     <style>
         footer span{
@@ -76,9 +77,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
                         <span class="caret"style="left: 5%"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
-                      <li><a href="">Phân vùng khối U</a></li>
-                      <li><a href="">Phát hiện và phân vùng tự động khối U</a></li>
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phát hiện và phân vùng tự động khối U</a></li>
                     </ul>
                   </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
@@ -89,7 +90,8 @@
                 </li>
             </ul>
           </div>
-      </nav>    
+      </nav>
+      <div class="notifications"></div>    
       <body>
         <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">PHƯƠNG PHÁP PHÂN VÙNG U DỰA TRÊN GỢI Ý </p>
         <div id="form_upload">
@@ -108,8 +110,8 @@
                     <progress class="progress" id="file-progress" value="0">
                     <span>0</span>%     
                     </progress>
-                </div> -->
-                <!-- <div id="button-del-search" class="hidden">
+                </div>
+                <div id="button-del-search" class="hidden">
                     <button><i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh</button>
                     <button><i class="bi bi-search"></i>&nbsp;Phát hiện tự động</button>
                 </div> -->
@@ -209,7 +211,7 @@
             </div>
         </div>
         <div id="result" style="display: none;">
-            <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 20px 0;">Kết quả phân vùng ảnh dựa trên gợi ý</h3>
+            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 20px 0; font-weight: bold;">KẾT QUẢ PHÂN VÙNG ẢNH DỰA TRÊN GỢI Ý</h3>
             <div style="display: flex; justify-content: center;">
                 <img id="convertedImage" src="" alt="Converted Image" style="margin: 10px 0;">
             </div>

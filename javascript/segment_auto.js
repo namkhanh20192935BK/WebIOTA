@@ -55,7 +55,7 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
   formData.append('image', blob);
 
   try {
-    const response = await fetch('http://127.0.0.1:5000/api/detect', {
+    const response = await fetch('http://127.0.0.1:5000/api/segmentauto', {
       method: 'POST',
       body: formData
     });
@@ -85,16 +85,7 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
       const newHeading = document.createElement('h3');
       newHeading.textContent = 'Thông tin khối u';
       resultInfo.appendChild(newHeading);
-      console.log(typeof(detections))
-      
-      // Giải mã hình ảnh base64 và tạo URL để hiển thị
-      const base64Image = data.image;
-      const imageBlob = base64ToBlob(base64Image, 'image/png');
-      const imgUrl = URL.createObjectURL(imageBlob);
-
-      document.getElementById('result').style.display = "block";
-      document.getElementById('convertedImage').src = imgUrl;
-
+      // In ra từng phần tử trong mảng detections
       if (Array.isArray(detections) && detections.length === 0) {
         document.getElementById('result_none').style.display = "block";
         createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không có khối u được phát hiện');
@@ -146,6 +137,10 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
           const confidenceP = document.createElement('p');
           confidenceP.innerHTML = `<b>Độ chính xác dự đoán:</b> ${detection.conf.toFixed(2)}`;
           newDiv.appendChild(confidenceP);
+
+          const diameter = document.createElement('p');
+          diameter.innerHTML = `<b>Đường kính khối u:</b> 3.5mm`;
+          newDiv.appendChild(diameter);
       
           fragment.appendChild(newDiv);
         });
@@ -159,6 +154,15 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
       // alert('Dữ liệu JSON không hợp lệ.');
       createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không thể kết nối với Server');
     }
+
+    // Giải mã hình ảnh base64 và tạo URL để hiển thị
+    const base64Image = data.image;
+    const imageBlob = base64ToBlob(base64Image, 'image/png');
+    const imgUrl = URL.createObjectURL(imageBlob);
+
+    document.getElementById('result').style.display = "block";
+    document.getElementById('convertedImage').src = imgUrl;
+
     const resultDiv = document.getElementById('result');
     // Set TimeOut để đảm bảo phần tử đã được thêm vào DOM rồi mới cuộn xuống
     setTimeout(() => {

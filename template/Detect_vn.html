@@ -61,16 +61,21 @@
             color: #0061BA;
             font-weight: 500;
         }
-
-        #result_title{
+        .uploader label{
+            margin-bottom: 0px;
+        }
+        #result_none{
             background-color: #D9D9D9;
-            border-left: solid #B41D24 15px;
-            padding: 5px 10px;
+            border-left: solid #F3C309 15px;
+            padding: 10px;
             margin: 20px 0;
         }
-        #result_title > h3{
-            color: #0061BA;
-            font-weight: 500;
+        #result_none > h4{
+            color: #B41D24;
+            font-weight: bold;
+        }
+        .uploader label{
+            margin-bottom: 0px;
         }
     </style>
 </head>
@@ -96,9 +101,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
                         <span class="caret"style="left: 5%"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
-                      <li><a href="">Phân vùng khối U</a></li>
-                      <li><a href="">Phát hiện và phân vùng tự động khối U</a></li>
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phát hiện và phân vùng tự động khối U</a></li>
                     </ul>
                   </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
@@ -109,8 +114,9 @@
                 </li>
             </ul>
           </div>
-      </nav>    
-      <body>
+    </nav>
+    <div class="notifications"></div>  
+    <body>
         <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">PHƯƠNG PHÁP PHÁT HIỆN TỰ ĐỘNG KHỐI U</p>
         <div id="form_upload">
             <form id="file-upload-form" class="uploader">
@@ -136,10 +142,10 @@
                 </label>
             </form>
         </div>
-        <br>
+        <br>        
         <div id="result" style="display: none;">
             <div id="result_title">
-                <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Kết quả phát hiện khối u</h2>
+                <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center;font-weight: bold;margin-bottom: 30px;">KẾT QUẢ PHÁT HIỆN KHỐI U</h2>
             </div>
             <div id="result-img" style="display: flex; justify-content: center; width: max-width;">
                 <img id="convertedImage" src="" alt="Converted Image" style="max-width: 700px;">
@@ -149,9 +155,11 @@
         <div id="result_info" style="display: none;">
             <h3>Thông tin khối u</h3>
         </div>
-      </body>
-
-      <footer>
+        <div id="result_none" style="display: none;">
+            <h4><i class="bi bi-exclamation-diamond"></i>&nbsp;Không có thông tin khối u được phát hiện</h3>
+        </div>
+    </body>  
+    <footer>
         <div class="img-footer">
             <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
         </div>
@@ -160,6 +168,6 @@
             <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
             <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
         </div>
-      </footer>
+    </footer>
 </body>
 </html>
