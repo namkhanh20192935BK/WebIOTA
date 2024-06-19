@@ -1,27 +1,5 @@
 var blob;
-let notifications = document.querySelector('.notifications');
-let success = document.getElementById('success');
-let error = document.getElementById('error');
-let warning = document.getElementById('warning');
-let info = document.getElementById('info');
-
-function createToast(type, icon, title, text){
-    let newToast = document.createElement('div');
-    newToast.innerHTML = `
-        <div class="toast ${type}">
-            <i class="${icon}"></i>
-            <div class="content">
-                <div class="title">${title}</div>
-                <span>${text}</span>
-            </div>
-            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-        </div>`;
-    notifications.appendChild(newToast);
-    newToast.timeOut = setTimeout(
-        ()=>newToast.remove(), 5000
-    )
-}
-// Hàm chuyển đổi base64 sang Blob
+// Function to convert base64 to Blob
 function base64ToBlob(base64, mimeType) {
   const byteCharacters = atob(base64);
   const byteArrays = [];
@@ -44,10 +22,10 @@ function base64ToBlob(base64, mimeType) {
 document.getElementById('detect_auto').addEventListener('click', async (event) => {
   event.preventDefault();
 
-  // Kiểm tra biến blob có tồn tại và hợp lệ
+  // Check if blob variable exists and is valid
   if (typeof blob === 'undefined' || blob === null) {
-    // alert('Vui lòng chọn một hình ảnh trước khi thực hiện!');
-    createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không thể kết nối với Server');
+    // alert('Please select an image before proceeding!');
+    createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'Could not connect to Server');
     return;
   }
 
@@ -64,31 +42,31 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
       throw new Error('Network response was not ok');
     }
 
-    // Kiểm tra phản hồi từ API
+    // Check API response
     const data = await response.json();
-    console.log(data); // Kiểm tra dữ liệu phản hồi
+    console.log(data); // Check response data
 
-    // Xử lý JSON nếu nó là một chuỗi không hợp lệ
+    // Process JSON if it's an invalid string
     if (typeof data.detections === 'string') {
-      // Thay thế ký tự ' thành " để chuỗi JSON hợp lệ
+      // Replace ' with " to make JSON valid
       const jsonString = data.detections.replace(/'/g, '"');
-      console.log(jsonString); // Kiểm tra chuỗi JSON
+      console.log(jsonString); // Check JSON string
 
-      // Chuyển đổi chuỗi JSON thành mảng đối tượng JavaScript
+      // Parse JSON string into JavaScript object array
       const detections = JSON.parse(jsonString);
-      console.log(detections); // Kiểm tra đối tượng JSON
+      console.log(detections); // Check JSON object
 
       const resultInfo = document.getElementById('result_info');
-      resultInfo.innerHTML = ''; // Xóa tất cả các nội dung cũ
+      resultInfo.innerHTML = ''; // Clear previous content
 
-      // Thêm thẻ <h3> với nội dung "Thông tin khối u"
+      // Add <h3> tag with "Tumor Information" content
       const newHeading = document.createElement('h3');
-      newHeading.textContent = 'Thông tin khối u';
+      newHeading.textContent = 'Tumor Information';
       resultInfo.appendChild(newHeading);
-      // In ra từng phần tử trong mảng detections
+      // Print each element in the detections array
       if (Array.isArray(detections) && detections.length === 0) {
         document.getElementById('result_none').style.display = "block";
-        createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không có khối u được phát hiện');
+        createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'No tumors detected');
       } else {
         const fragment = document.createDocumentFragment();
         detections.forEach(detection => {
@@ -98,48 +76,48 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
           newDiv.style.margin = '10px 0 0 0';
       
           const coordinateP = document.createElement('p');
-          coordinateP.innerHTML = `<b>Tọa độ phát hiện:</b> [${detection.box.join(', ')}]`;
+          coordinateP.innerHTML = `<b>Detection coordinates:</b> [${detection.box.join(', ')}]`;
           newDiv.appendChild(coordinateP);
       
           const classP = document.createElement('p');
           let classNameText;
           switch (detection.cls) {
             case 0:
-              classNameText = "U nang buồng trứng nội mạc tử cung";
+              classNameText = "Chocolate cyst";
               break;
             case 1:
-              classNameText = "U nang buồng trứng tuyến thanh";
+              classNameText = "Serous cystadenoma";
               break;
             case 2:
-              classNameText = "U nang tế bào mầm";
+              classNameText = "Teratoma";
               break;
             case 3:
-              classNameText = "U nang tuyến tế bào";
+              classNameText = "Theca cell tumor";
               break;
             case 4:
-              classNameText = "U nang nước";
+              classNameText = "Simple cysts";
               break;
             case 5:
-              classNameText = "Buồng trứng bình thường";
+              classNameText = "Ovary normal";
               break;
             case 6:
-              classNameText = "U nang tuyến nhầy (ung thư buồng trứng thể niêm mạc)";
+              classNameText = "Mucinous cystadenoma";
               break;
             case 7:
-              classNameText = "Ung thư thanh dịch buồng trứng";
+              classNameText = "High grade serous cystadenoma";
               break;
             default:
-              classNameText = "Không xác định";
+              classNameText = "Unknown";
           }
-          classP.innerHTML = `<b>Thuộc lớp:</b> ${classNameText}`;
+          classP.innerHTML = `<b>Class:</b> ${classNameText}`;
           newDiv.appendChild(classP);
       
           const confidenceP = document.createElement('p');
-          confidenceP.innerHTML = `<b>Độ chính xác dự đoán:</b> ${detection.conf.toFixed(2)}`;
+          confidenceP.innerHTML = `<b>Prediction confidence:</b> ${detection.conf.toFixed(2)}`;
           newDiv.appendChild(confidenceP);
 
           const diameter = document.createElement('p');
-          diameter.innerHTML = `<b>Đường kính khối u:</b> 3.5mm`;
+          diameter.innerHTML = `<b>Tumor diameter:</b> 3.5mm`;
           newDiv.appendChild(diameter);
       
           fragment.appendChild(newDiv);
@@ -147,15 +125,15 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
         const resultInfo = document.getElementById('result_info');
         resultInfo.appendChild(fragment);
         document.getElementById('result_info').style.display = "block";
-        createToast('success', 'fa-solid fa-circle-check', 'Thành công', 'Vui lòng xem kết quả bên dưới');
+        createToast('success', 'fa-solid fa-circle-check', 'Success', 'Please see the results below');
       }
       
     } else {
-      // alert('Dữ liệu JSON không hợp lệ.');
-      createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không thể kết nối với Server');
+      // alert('Invalid JSON data.');
+      createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'Could not connect to Server');
     }
 
-    // Giải mã hình ảnh base64 và tạo URL để hiển thị
+    // Decode base64 image and create URL for display
     const base64Image = data.image;
     const imageBlob = base64ToBlob(base64Image, 'image/png');
     const imgUrl = URL.createObjectURL(imageBlob);
@@ -164,15 +142,15 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
     document.getElementById('convertedImage').src = imgUrl;
 
     const resultDiv = document.getElementById('result');
-    // Set TimeOut để đảm bảo phần tử đã được thêm vào DOM rồi mới cuộn xuống
+    // Set TimeOut to ensure the element has been added to DOM before scrolling down
     setTimeout(() => {
       resultDiv.scrollIntoView({ behavior: 'smooth' });
     }, 100);
 
   } catch (error) {
     console.error('Error:', error);
-    // alert('Failed to upload and convert image.');
-    createToast('error', 'fa-solid fa-circle-exclamation', 'Thất bại', 'Không thể kết nối với Server');
+    // alert('Error to connect to Server.');
+    createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'Could not connect to Server');
   }
 });
 
@@ -237,7 +215,7 @@ function ekUpload() {
 
     var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
     if (isGood) {
-      console.log("Tệp hợp lệ: " + file.name);
+      console.log("Valid file: " + file.name);
       document.getElementById('start').classList.add("hidden");
       document.getElementById('response').classList.remove("hidden");
       document.getElementById('notimage').classList.add("hidden");

@@ -4,29 +4,6 @@ var height = 0
 var image
 var x1, x2, y1, y2, blob
 
-let notifications = document.querySelector('.notifications');
-let success = document.getElementById('success');
-let error = document.getElementById('error');
-let warning = document.getElementById('warning');
-let info = document.getElementById('info');
-
-function createToast(type, icon, title, text){
-    let newToast = document.createElement('div');
-    newToast.innerHTML = `
-        <div class="toast ${type}">
-            <i class="${icon}"></i>
-            <div class="content">
-                <div class="title">${title}</div>
-                <span>${text}</span>
-            </div>
-            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-        </div>`;
-    notifications.appendChild(newToast);
-    newToast.timeOut = setTimeout(
-        ()=>newToast.remove(), 5000
-    )
-}
-
 // Lắng nghe sự kiện click trên nút Tải ảnh xuống
 document.getElementById('downloadButton').addEventListener('click', function() {
     // Lấy URL của hình ảnh từ thuộc tính src của thẻ <img>
