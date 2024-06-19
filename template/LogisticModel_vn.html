@@ -22,20 +22,43 @@
       crossorigin="anonymous"
     />
 	<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-
-
 	<title>Thuật toán LR1 & LR2</title >
+	<style>
+		footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
+				<a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:50px;"></a>
                 <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/index_vn.html">Trang chủ</a></li>
                 <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Các phương pháp đánh giá
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
                   <span class="caret"style="left: 5%"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="SimpleRules_vn.html">Nguyên tắc cơ bản của IOTA</a></li>
@@ -43,6 +66,15 @@
                     <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
                   </ul>
                 </li>
+				<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                        <span class="caret"style="left: 5%"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phát hiện và phân vùng tự động khối U</a></li>
+                    </ul>
+                  </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
                 <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
@@ -350,16 +382,15 @@
 			<button type="button" onclick="saveAsPDF()" id="savePatientInfo" class="btn btn-primary" ><i class="bi bi-floppy"></i></button>
 		</div>
 	</div>
-	<hr>
-	<div class="col-sm-12 col-md-12" style="border-top: 3px solid #C9302C; margin-top: 30px">
+	<div class="col-sm-12 col-md-12">
 		<div id="results-diagnosis" style="display: none;">
 			<h2>Kết quả</h2>
-			<div class="text-alert-left" style="background-color: #e9e9e9; border-radius: 5px; padding: 10px 20px; margin: 10px 0; display: none;"><h4 style="color: #D9534F;">Kết quả phân tích buồng trứng trái</h4></div>
+			<div class="text-alert-left" style="border-radius: 5px; padding: 5px 20px; margin: 10px 0; display: none; border-left: 10px #286090 solid; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"><h4 style="font-weight: bold; color: #D9534F;">Kết quả phân tích buồng trứng trái</h4></div>
 			<table class="table-result-ovary text-alert-left" style="display: none;">
 				<thead>
 					<tr>
 						<th>Thuật toán</th>
-						<th>Giá trị</th>
+						<th>Khả năng ác tính (%)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -377,12 +408,12 @@
 				<div class="col-md-6" id="piechart_LR1Left" style="text-align: center; width: 600px; height: 300px;"></div>
 				<div class="col-md-6" id="piechart_LR2Left" style="text-align: center; width: 600px; height: 300px;"></div>
 			</div>
-			<div class="text-alert-right" style="background-color: #e9e9e9; border-radius: 5px; padding: 10px 20px; margin: 10px 0; display: none;"><h4 style="color: #D9534F;">Kết quả phân tích buồng trứng phải</h4></div>
+			<div class="text-alert-right" style="border-radius: 5px; padding: 5px 20px; margin: 10px 0; display: none; border-left: 10px #286090 solid; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"><h4 style="font-weight: bold; color: #D9534F;">Kết quả phân tích buồng trứng phải</h4></div>
 			<table class="table-result-ovary text-alert-right" style="display: none;">
 				<thead>
 					<tr>
 						<th>Thuật toán</th>
-						<th>Giá trị</th>
+						<th>Khả năng ác tính (%)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -400,5 +431,17 @@
 				<div class="col-md-6" id="piechart_LR1Right" style="text-align: center; width: 600px; height: 300px;"></div>
 				<div class="col-md-6" id="piechart_LR2Right" style="text-align: center; width: 600px; height: 300px;"></div>
 			</div>
+		</div>
+	</div>
+	<footer style="margin-top: 120px;">
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+    </footer>
 </body>
 </html>

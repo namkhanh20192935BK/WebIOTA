@@ -121,10 +121,10 @@ function checkResults_LR() {
     var LR2_left = 1 / (1 + Math.exp(-z2_left));
     
     var LR1LeftOvary = document.getElementById("LR1_Result_LeftOvary");
-    LR1LeftOvary.innerHTML = LR1_left;
+    LR1LeftOvary.innerHTML = LR1_left.toFixed(2);
 
     var LR2LeftOvary = document.getElementById("LR2_Result_LeftOvary");
-    LR2LeftOvary.innerHTML = LR2_left;
+    LR2LeftOvary.innerHTML = LR2_left.toFixed(2);
 
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart_LR1Left);
@@ -261,10 +261,10 @@ function checkResults_LR() {
     var LR2 = 1 / (1 + Math.exp(-z2));
     
     var LR1RightOvary = document.getElementById("LR1_Result_RightOvary");
-    LR1RightOvary.innerHTML = LR1;
+    LR1RightOvary.innerHTML = LR1.toFixed(2);
     
     var LR2RightOvary = document.getElementById("LR2_Result_RightOvary");
-    LR2RightOvary.innerHTML = LR2;
+    LR2RightOvary.innerHTML = LR2.toFixed(2);
     
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart_LR1Right);
@@ -273,8 +273,8 @@ function checkResults_LR() {
     
           var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Lành tính', 1 - LR1],
-            ['Ác tính', LR1]
+            ['Lành tính (%)', 1 - LR1],
+            ['Ác tính (%)', LR1]
           ]);
     
           var options = {
@@ -293,8 +293,8 @@ function checkResults_LR() {
     
           var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Lành tính', 1 - LR2],
-            ['Ác tính', LR2]
+            ['Lành tính (%)', 1 - LR2],
+            ['Ác tính (%)', LR2]
           ]);
     
           var options = {
