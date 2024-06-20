@@ -27,7 +27,7 @@
     />
     <script src="/javascript/Detect_en.js" defer></script>
     <script src="/javascript/Alarm.js" defer></script>
-	<title>Tumor Segmentation</title >
+	<title>Tumor Detection</title >
     <style>
         footer {
             position: relative;
@@ -103,9 +103,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools
                         <span class="caret" style="left: 2px;"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="Detect_en.html">Tumor Detection</a></li>
-                        <li><a href="Segment_en.html">Tumor Segmentation</a></li>
-                        <li><a href="Segment_Auto_en.html">Automatic Tumor Detection and Segmentation</a></li>
+                        <li><a href="Detect_en.html">Automatic Tumor Segmentation</a></li>
+                        <li><a href="Segment_en.html">Tumor Segmentation with Prompt</a></li>
+                        <li><a href="Segment_Auto_en.html">Automatic Tumor Segmentation</a></li>
                     </ul>
                 </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">About us</a></li>
@@ -128,7 +128,7 @@
                 <div id="start">
                     <i class="fa fa-download" aria-hidden="true"></i>
                     <div>Select an image or drag an image here</div>
-                    <div id="notimage" class="hidden" style="color: red;">Please select or drag an image</div>
+                    <div id="notimage" class="hidden" style="color: red;">Please select or drag an image file</div>
                     <span id="file-upload-btn" class="btn btn-primary" style="left: unset; transform: unset;">Choose image from computer</span>
                 </div>
                 <div id="response" class="hidden">
@@ -138,8 +138,8 @@
                     </progress>
                 </div>
                 <div id="button-del-search" class="hidden">
-                    <button><i class="bi bi-file-earmark-x"></i>&nbsp;Delete image</button>
-                    <button type="button" id="detect_auto"><i class="bi bi-search"></i>&nbsp;Automatic detection</button>
+                    <button class="btn btn-success" data-toggle="modal" style="padding: 0px;"><i class="bi bi-file-earmark-x"></i>&nbsp;Delete image</button>
+                    <button type="button" id="detect_auto" class="btn btn-success" data-toggle="modal" style="padding: 0px;"><i class="bi bi-search"></i>&nbsp;Automatic detection</button>
                 </div>
                 </label>
             </form>

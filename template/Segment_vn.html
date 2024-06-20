@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
     <link rel="stylesheet" href="/style/alertBox.css">
 	<!-- <link rel="stylesheet" href="/style/style.css"> -->
 	<link rel="stylesheet" href="/style/home.css">
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<title>Phân vùng khối U</title >
+	<title>Phân vùng với gợi ý</title >
     <style>
         footer span{
             display: block;
@@ -78,8 +79,8 @@
                         <span class="caret"style="left: 5%"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
-                        <li><a href="Segment_vn.html">Phân vùng khối U</a></li>
-                        <li><a href="Segment_Auto_vn.html">Phát hiện và phân vùng tự động khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
                     </ul>
                   </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
@@ -149,9 +150,9 @@
                                 <td>
                                     <select name="im[0][shape]" class="form-control input-sm">
                                         <option value>---</option>
-                                        <option value="rect">Rect</option>
-                                        <option value="poly">Poly</option>
-                                        <option value="circle">Circle</option>
+                                        <option value="rect">Prompt Box</option>
+                                        <option value="poly">Prompt Point</option>
+                                        <option value="circle">Prompt Mask</option>
                                     </select>
                                 </td>
                                 <td><p id="image-size"></p></td>
