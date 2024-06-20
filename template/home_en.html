@@ -36,17 +36,24 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        .col-lg-4 img {
+            object-fit: fill;
+            width: fit-content;
+            width: 400px;
+            height: 220px;
+            border-radius: 5px 5px 0 0;
+        }
     </style>
 </head>
 <body>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:50px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
                 <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="home_en.html">Home</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Models
                   <span class="caret"></span></a>
@@ -76,22 +83,44 @@
       </nav>
     <h1 style="text-align: center; margin: 40px 0;" id="heading-main">Ovarian Tumor Evaluation Model</h1>
     <div class="row" style="margin: 30px 0;">
-        <div class="col-lg-4" style="text-align: center;">
-            <div class="block" onclick="redirectToPage('/template/SimpleRules.html')">
-                <img class="block-son-image" src="/image/simpleRules.PNG" alt="">
-                <span class="block-son-text">IOTA Simple Rules for Adnexal Masses</span>
+        <div class="col-md-12">
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/SimpleRules.html')">
+                    <img class="block-son-image" src="/image/simpleRules.PNG" alt="">
+                    <span class="block-son-text">IOTA Simple Rules for Adnexal Masses</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/LogisticModel.html')">
+                    <img class="block-son-image" src="/image/logisticModel.PNG" alt="">
+                    <span class="block-son-text">LR1 & LR2 Algorithms for Adnexal Masses</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/AdnexModel.html')">
+                    <img class="block-son-image" src="/image/adnexModel.PNG" alt="">
+                    <span class="block-son-text">IOTA Adnex Models</span>
+                </div>
             </div>
         </div>
-        <div class="col-lg-4" style="text-align: center;">
-            <div class="block" onclick="redirectToPage('/template/LogisticModel.html')">
-                <img class="block-son-image" src="/image/logisticModel.PNG" alt="">
-                <span class="block-son-text">LR1 & LR2 Algorithms for Adnexal Masses</span>
+        <div class="col-md-12">
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/Detect_en.html')">
+                    <img class="block-son-image" src="/image/yolo.JPG" alt="">
+                    <span class="block-son-text">Automatic Tumor Detection Method</span>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4" style="text-align: center;">
-            <div class="block" onclick="redirectToPage('/template/AdnexModel.html')">
-                <img class="block-son-image" src="/image/adnexModel.PNG" alt="">
-                <span class="block-son-text">IOTA Adnex Models</span>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/Segment_en.html')">
+                    <img class="block-son-image" src="/image/prompt.png" alt="">
+                    <span class="block-son-text">Tumor Segmentation Method Based on Prompt</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/Segment_Auto_en.html')">
+                    <img class="block-son-image" src="/image/sam.png" alt="">
+                    <span class="block-son-text">Automatic Tumor Segmentation Method</span>
+                </div>
             </div>
         </div>
     </div>
@@ -107,8 +136,8 @@
             <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
         </div>
         <div class="info-footer">
-            <span>This project is part of a research project conducted by the Signal, Information, and Multimedia Content Processing Laboratory (SigM lab)</span>
-            <span>Address: 802, 804, 806, 808, C7, School of Electrical and Electronic Engineering, Hanoi University of Science and Technology</span>
+            <span>The project is developed by the Signal Processing, Information, and Multimedia Laboratory (SigM lab)</span>
+            <span>Address: 802, 804, 806, 808, Building C7, School of Electrical and Electronic Engineering, HUST</span>
             <span>Phone: (+84) 999 999 999 - Assoc. Prof. Dr. Le Thi Lan</span>
         </div>
     </footer> 

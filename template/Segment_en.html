@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="/javascript/Segment_en.js" defer></script>
-    <script src="/javascript/Alarm.js" defer></script>
 	<title>Tumor Segmentation</title >
     <style>
         footer span{
@@ -66,7 +64,7 @@
                 <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="home_en.html">Home</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Models
                   <span class="caret"></span></a>
@@ -88,7 +86,7 @@
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">About us</a></li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Contact</a></li>
                 <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
-                    <div class="flag"><a href="home_vn.html" title="Tiếng Việt"><img src="/image/vietnam.png" alt=""></a></div>
+                    <div class="flag"><a href="Segment_vn.html" title="Tiếng Việt"><img src="/image/vietnam.png" alt=""></a></div>
                     <div class="flag"><a href="#" title="English"><img src="/image/england.jpg" alt=""></a></div>
                 </li>
             </ul>
@@ -96,7 +94,7 @@
       </nav>
       <div class="notifications"></div>    
       <body>
-        <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">TUMOR SEGMENTATION METHOD BASED ON PROMPTS</p>
+        <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">TUMOR SEGMENTATION METHOD BASED ON PROMPT</p>
         <div id="form_upload">
             <form id="file-upload-form" class="uploader">
                 <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
@@ -108,6 +106,16 @@
                     <div id="notimage" class="hidden" style="color: red;">Please select or drag an image file</div>
                     <span id="file-upload-btn" class="btn btn-primary" style="left: unset; transform: unset;">Choose image from computer</span>
                 </div>
+                <!-- <div id="response" class="hidden">
+                    <div id="messages"></div>
+                    <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%     
+                    </progress>
+                </div>
+                <div id="button-del-search" class="hidden">
+                    <button><i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh</button>
+                    <button><i class="bi bi-search"></i>&nbsp;Phát hiện tự động</button>
+                </div> -->
                 </label>
             </form>
         </div>
@@ -142,9 +150,9 @@
                                 <td>
                                     <select name="im[0][shape]" class="form-control input-sm">
                                         <option value>---</option>
-                                        <option value="rect">Rect</option>
-                                        <option value="poly">Poly</option>
-                                        <option value="circle">Circle</option>
+                                        <option value="rect">Prompt Box</option>
+                                        <option value="poly">Prompt Point</option>
+                                        <option value="circle">Prompt Mask</option>
                                     </select>
                                 </td>
                                 <td><p id="image-size"></p></td>
@@ -195,7 +203,7 @@
             </div>
         </div>
         <div id="result" style="display: none;">
-            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 20px 0; font-weight: bold;">KẾT QUẢ PHÂN VÙNG ẢNH DỰA TRÊN GỢI Ý</h3>
+            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 20px 0; font-weight: bold;">IMAGE SEGMENTATION RESULT BASED ON PROMPT</h3>
             <div style="display: flex; justify-content: center;">
                 <img id="convertedImage" src="" alt="Converted Image" style="margin: 10px 0;">
             </div>
@@ -203,19 +211,20 @@
                 <button id="downloadButton" class="btn btn-primary btn-lg"><i class="bi bi-cloud-arrow-down"></i>&nbsp;Download image</button>
             </div>
         </div>
-    
       </body>
-
+    
       <footer style="margin-top: 30px;">
         <div class="img-footer" >
             <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
         </div>
         <div class="info-footer">
-            <span>The project is implemented by the Signal Processing, Information and Multimedia Content Laboratory (SigM lab)</span>
-            <span>Address: Rooms 802-808, Building C7, School of Electrical and Electronic Engineering, Hanoi University of Science and Technology</span>
+            <span>The project is developed by the Signal Processing, Information, and Multimedia Laboratory (SigM lab)</span>
+            <span>Address: 802, 804, 806, 808, Building C7, School of Electrical and Electronic Engineering, HUST</span>
             <span>Phone: (+84) 999 999 999 - Assoc. Prof. Dr. Le Thi Lan</span>
         </div>
-      </footer> 
+    </footer> 
+      <script src="/javascript/Segment_en.js"></script>
+      <script src="/javascript/Alarm.js"></script> 
       <script>
           (function($) {
               $(document).trigger('init');
