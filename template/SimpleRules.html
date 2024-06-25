@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
     <link rel="stylesheet" href="/style/style.css">
 	<link rel="stylesheet" href="/style/alertBox.css">
 	<link rel="stylesheet" href="/style/home.css">
@@ -19,15 +20,40 @@
       crossorigin="anonymous"
     />
 	<title>Simple Rules</title>
+	<style>
+		footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
+				<a href="https://hust.edu.vn/"><img src="/image/HUST.jpg" alt="Logo HUST" style="width: 45px;"></a>
                 <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/index.html">Home</a></li>
+                <li><a href="home_en.html">Home</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Models
                   <span class="caret"style="left: 5%"></span></a>
@@ -36,6 +62,15 @@
                     <li><a href="LogisticModel.html">LR1 & LR2</a></li>
                     <li><a href="AdnexModel.html">Adnex Models</a></li>
                   </ul>
+                </li>
+				<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools
+                        <span class="caret" style="left: 2px;"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_en.html">Automatic Tumor Segmentation</a></li>
+                        <li><a href="Segment_en.html">Tumor Segmentation with Prompt</a></li>
+                        <li><a href="Segment_Auto_en.html">Automatic Tumor Segmentation</a></li>
+                    </ul>
                 </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">About us</a></li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Contact</a></li>
@@ -52,17 +87,18 @@
 		<div class="col-sm-12 col-md-12">
 			<div class="panel panel-primary As-D">
 				<div class="panel-heading" style="background-color: #D9534F;">
-					<span class="panel-title">Information</span>
+					<span class="panel-title">Overview</span>
 				</div>
 				<div class="panel-body" id="part-one">
-					<p>The Simple Rules are a preoperative classification system for ovarian tumors, consisting of five features typical for benign tumors (B-features) and five features typical for malignant tumors (M-features), see Figure 1. The Simple Rules can be used to diagnose ovarian cancer in women who have at least one persistent adnexal (ovarian, para-ovarian, and tubal) tumor and are considered to require surgery. Based on which of the B- and M-features that apply, tumors are classified as Benign, Malignant or Inconclusive:
+					<p>The Simple Rules are a preoperative classification system for ovarian tumors, consisting of five features typical for benign tumors (B-features) and five features typical for malignant tumors (M-features). The Simple Rules can be used to diagnose ovarian cancer in women who have at least one persistent adnexal (ovarian, para-ovarian, and tubal) tumor and are considered to require surgery. Based on which of the B- and M-features that apply, tumors are classified as Benign, Malignant or Inconclusive:
 					<ul>
 						<li>Benign - Only B-features apply</li>
 						<li>Malignant - Only M-features apply</li>
 						<li>Inconclusive - no features apply, or both B- and M-features apply</li>
 					</ul>
+					<p>Most adnexal tumors in an ordinary tumor population can be correctly classified as benign or malignant using simple ultrasound-based rules. For tumors that cannot be classified using simple rules, ultrasound examination by an expert examiner might be useful.</p>
 					<!-- <img src="/IOTA_Web_HUST/productionfiles/SimpleRulesIOTA.png" alt="" style="width: 1000px;"> -->
-					<p>References:</p>
+					<p style="font-weight:700;">References:</p>
 					<p>1. Timmerman, D et al. “Simple ultrasound-based rules for the diagnosis of ovarian cancer.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 31,6 (2008): 681-90. <a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.5365</a></p>
 				</div>
 			</div>
@@ -283,8 +319,7 @@
 			<button type="button" onclick="window.print()" id="savePatientInfo" class="btn btn-primary" ><i class="bi bi-floppy"></i></button>
 		</div>
 	</div>
-	<hr>
-	<div class="col-sm-12 col-md-12" style="border-top: 3px solid #C9302C; margin-top: 30px">
+	<div class="col-sm-12 col-md-12">
 		<div id="group-text-diagnosis" style="display: none;">
 			<h3>Results</h3>
 			<p style="display: none;" id="text-diagnosis-results-left"></p>
@@ -294,5 +329,15 @@
 			<p style="display: none;" id="text-diagnosis-comments-right"></p>
 		</div>
 	</div>
+    <footer style="margin-top: 120px;">
+        <div class="img-footer" >
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>The project is developed by the Signal Processing, Information, and Multimedia Laboratory (SigM lab)</span>
+            <span>Address: 802, 804, 806, 808, Building C7, School of Electrical and Electronic Engineering, HUST</span>
+            <span>Phone: (+84) 999 999 999 - Assoc. Prof. Dr. Le Thi Lan</span>
+        </div>
+    </footer>  
 </body>
 </html>

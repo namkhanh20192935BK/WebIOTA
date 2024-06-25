@@ -1,26 +1,4 @@
 var blob;
-let notifications = document.querySelector('.notifications');
-let success = document.getElementById('success');
-let error = document.getElementById('error');
-let warning = document.getElementById('warning');
-let info = document.getElementById('info');
-
-function createToast(type, icon, title, text){
-    let newToast = document.createElement('div');
-    newToast.innerHTML = `
-        <div class="toast ${type}">
-            <i class="${icon}"></i>
-            <div class="content">
-                <div class="title">${title}</div>
-                <span>${text}</span>
-            </div>
-            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-        </div>`;
-    notifications.appendChild(newToast);
-    newToast.timeOut = setTimeout(
-        ()=>newToast.remove(), 5000
-    )
-}
 // Hàm chuyển đổi base64 sang Blob
 function base64ToBlob(base64, mimeType) {
   const byteCharacters = atob(base64);
@@ -105,28 +83,28 @@ document.getElementById('detect_auto').addEventListener('click', async (event) =
           let classNameText;
           switch (detection.cls) {
             case 0:
-              classNameText = "U nang buồng trứng nội mạc tử cung";
+              classNameText = "U nang buồng trứng nội mạc tử cung - Chocolate cyst";
               break;
             case 1:
-              classNameText = "U nang buồng trứng tuyến thanh";
+              classNameText = "U nang buồng trứng tuyến thanh - Serous cystadenoma";
               break;
             case 2:
-              classNameText = "U nang tế bào mầm";
+              classNameText = "U nang tế bào mầm - Teratoma";
               break;
             case 3:
-              classNameText = "U nang tuyến tế bào";
+              classNameText = "U nang tuyến tế bào - Theca cell tumor";
               break;
             case 4:
-              classNameText = "U nang nước";
+              classNameText = "U nang nước - Simple cysts";
               break;
             case 5:
-              classNameText = "Buồng trứng bình thường";
+              classNameText = "Buồng trứng bình thường - Ovary normal";
               break;
             case 6:
-              classNameText = "U nang tuyến nhầy (ung thư buồng trứng thể niêm mạc)";
+              classNameText = "U nang tuyến nhầy (ung thư buồng trứng thể niêm mạc) - Mucinous cystadenoma";
               break;
             case 7:
-              classNameText = "Ung thư thanh dịch buồng trứng";
+              classNameText = "Ung thư thanh dịch buồng trứng - High grade serous cystadenoma";
               break;
             default:
               classNameText = "Không xác định";

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
     <link rel="stylesheet" href="/style/style.css">
 	<link rel="stylesheet" href="/style/alertBox.css">
 	<link rel="stylesheet" href="/style/home.css">
@@ -52,27 +53,27 @@
 	<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-				<a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:50px;"></a>
+				<a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
                 <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/index_vn.html">Trang chủ</a></li>
+                <li><a href="home_vn.htmls">Trang chủ</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
-                  <span class="caret"style="left: 5%"></span></a>
+                  <span class="caret"style="left: 2%"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="SimpleRules_vn.html">Nguyên tắc cơ bản của IOTA</a></li>
+                    <li><a href="SimpleRules_vn.html">Quy tắc cơ bản của IOTA</a></li>
                     <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
                     <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
                   </ul>
                 </li>
 				<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
-                        <span class="caret"style="left: 5%"></span></a>
+                        <span class="caret"style="left: 2%"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
-                        <li><a href="Segment_vn.html">Phân vùng khối U</a></li>
-                        <li><a href="Segment_Auto_vn.html">Phát hiện và phân vùng tự động khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
                     </ul>
                   </li>
                 <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
@@ -90,12 +91,13 @@
 		<div class="col-sm-12 col-md-12">
 			<div class="panel panel-primary As-D">
 				<div class="panel-heading" style="background-color: #D9534F;">
-					<span class="panel-title">Thông tin</span>
+					<span class="panel-title">Tổng quát</span>
 				</div>
 				<div class="panel-body" id="part-one">
-                    <p>Các bác sĩ y khoa có thể sử dụng các mô hình rủi ro LR1 & LR2 để chẩn đoán trước phẫu thuật ung thư buồng trứng ở những phụ nữ có ít nhất một khối u phần phụ dai dẳng (buồng trứng, cạnh buồng trứng và ống dẫn trứng) và được coi là cần phải phẫu thuật. Cả LR1 & LR2 đều ước tính khả năng khối u phần phụ là ác tính. Cả LR1 & LR2 đều được phát triển bởi các bác sĩ lâm sàng và nhà thống kê từ nhóm Phân tích khối u buồng trứng quốc tế (IOTA), dựa trên dữ liệu lâm sàng và siêu âm từ 754 phụ nữ được tuyển dụng tại 9 trung tâm ở 5 quốc gia (Ý, Bỉ, Thụy Điển, Pháp và Anh). Tất cả các bệnh nhân đều phải phẫu thuật theo đánh giá của bác sĩ lâm sàng địa phương. Tất cả các mô hình chẩn đoán hiện tại cho khối u phần phụ (ví dụ: mô hình IOTA, RMI, ROMA) đã được tạo cho bệnh nhân trải qua phẫu thuật, tức là bệnh nhân được chọn để quản lý theo dõi đã bị loại trừ khi tạo mô hình.</p>
-                    <p>Tham khảo:</p>
-					<p>1. Timmerman, D et al. “Ovarian cancer prediction in adnexal masses using ultrasound-based logistic regression models: a temporal and external validation study by the IOTA group.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 36,2 (2010): 226-34.<a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.7636</a></p>
+                    <p>Mô hình hồi quy Logistic LR1 & LR2 được sử dụng để chẩn đoán trước phẫu thuật ung thư buồng trứng ở những phụ nữ có ít nhất một khối u phần phụ dai dẳng (buồng trứng, cạnh buồng trứng và ống dẫn trứng) và được coi là cần phải phẫu thuật. LR1 & LR2 ước tính khả năng khối u phần phụ là ác tính hoặc lành tính. Mô hình được phát triển bởi các bác sĩ lâm sàng và người thống kê từ nhóm Phân tích khối u buồng trứng quốc tế (IOTA), dựa trên dữ liệu lâm sàng và siêu âm từ 754 phụ nữ được tuyển chọn tại 9 trung tâm ở 5 quốc gia (Ý, Bỉ, Thụy Điển, Pháp và Anh). Tất cả các bệnh nhân đều phải phẫu thuật theo đánh giá của bác sĩ lâm sàng địa phương.</p>
+					<p>Cả hai mô hình đều cung cấp khả năng phân biệt chính xác giữa các khối lành tính và ác tính. Bởi vì các mô hình cung cấp ước tính rủi ro khách quan và chính xác hợp lý nên chúng có thể cải thiện việc quản lý những phụ nữ nghi ngờ có bệnh lý buồng trứng.</p>
+                    <p style="font-weight:700;">Tham khảo:</p>
+					<p>1. Timmerman, D et al. “Ovarian cancer prediction in adnexal masses using ultrasound-based logistic regression models: a temporal and external validation study by the IOTA group.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 36,2 (2010): 226-34.<a href="https://pubmed.ncbi.nlm.nih.gov/20455203/">doi:10.1002/uog.7636</a></p>
 				</div>
 			</div>
 		</div>
