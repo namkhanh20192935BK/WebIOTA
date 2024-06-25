@@ -682,7 +682,7 @@ function(a) {
                 // alert("Vui lòng upload ảnh!")
                 document.getElementById('file-image').classList.add("hidden");
                 document.getElementById('notimage').classList.remove("hidden");
-                document.getElementById('start').classList.remove("hidden");q
+                document.getElementById('start').classList.remove("hidden");
                 document.getElementById('response').classList.add("hidden");
                 document.getElementById("file-upload-form").reset();
             }
